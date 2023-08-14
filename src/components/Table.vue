@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div class="p-4 flex flex-col md:w-screen w-full items-center border-2 border-yellow-300">
+  <div class="p-4 flex flex-col md:w-screen w-full items-center">
 
     <!-- Mobile Export Button -->
 
