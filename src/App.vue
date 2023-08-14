@@ -31,12 +31,12 @@ export default {
 
 <template>
   <header>
-    <h1 class="pt-8 pb-8 text-blue-500 text-3xl font-bold text-center">
+    <h1 class="pt-8 pb-8 text-sky-500 text-3xl font-bold text-center">
       Form-Table App
     </h1>
   </header>
 
-  <main class="container mx-auto p-8 flex flex-col items-center">
+  <main class="container mx-auto p-8">
     <Form @addRow="addRow" />
     <Table :data="tableData" @removeRow="removeRow" @exportData="exportData" />
   </main>
