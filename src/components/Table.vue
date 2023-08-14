@@ -36,6 +36,7 @@ export default {
 
 <template>
   <div class="p-4 flex flex-col md:w-screen w-full items-center">
+
     <!-- Mobile Export Button -->
 
     <div v-if="data.length > 0 && windowWidth < 768" class="justify-end flex w-full">
@@ -146,16 +147,17 @@ export default {
             </tr>
           </thead>
         </div>
-        <div>
-          <!-- Table Body -->
 
+        <!-- Table Body -->
+
+        <div class="w-full">
           <tbody
-            class="flex flex-col gap-y-6 md:gap-0 items-stretch w-64 text-xs text-gray-700 rounded-r-lg"
+            class="w-full flex flex-col gap-y-6 md:gap-0 md:flex-none w-64 text-xs text-gray-700 rounded-r-lg"
           >
             <tr
               v-for="(row, index) in data"
               :key="index"
-              class="flex flex-col md:flex-row text-xs bg-gray-50"
+              class="flex flex-col md:flex-row w-full md:justify-between text-xs bg-gray-50"
             >
               <td class="px-6 py-3 border-b border-gray-300">{{ row.name }}</td>
               <td class="px-6 py-3 border-b border-gray-300">
