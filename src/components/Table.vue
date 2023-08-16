@@ -55,22 +55,6 @@ export default {
                 class="bg-green-600 px-5 py-2.5 rounded-lg normal-case font-medium text-sm hover:bg-green-800"
                 >Export</a
               >
-              <div
-                id="exportModal"
-                class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-              >
-                <div
-                  class="bg-white p-4 rounded-lg shadow-md normal-case text-gray-900"
-                >
-                  <pre>{{ JSON.stringify(data, null, 2) }}</pre>
-                  <button
-                    @click="closeExportModal"
-                    class="mt-4 border-2 border-gray-500 bg-gray-200 hover:bg-gray-400 text-gray-700 font-medium text-sm px-5 py-2.5 rounded-lg"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
             </th>
           </tr>
         </thead>
@@ -97,11 +81,19 @@ export default {
 
     <!-- Mobile Table -->
 
-    <div class="block md:hidden overflow-x-auto mx-auto rounded-lg">
+    <div class="block md:hidden overflow-x-auto mx-auto">
+      <div class="w-full flex justify-end px-3 pb-4">
+        <a
+          @click="exportData"
+          href="#"
+          class="w-full text-center  sm:w-auto bg-green-600 px-5 py-2.5 rounded-lg normal-case font-medium text-sm text-white hover:bg-green-800"
+          >Export</a
+        >
+      </div>
       <table
         v-for="(row, index) in data"
         :key="index"
-        class="text-sm text-left rounded-lg mb-6 shadow-md mx-auto w-full"
+        class="text-sm text-left rounded-lg mb-6 shadow-md mx-auto w-full rounded-lg"
       >
         <tr class="tr">
           <th class="th">Name</th>
@@ -141,8 +133,25 @@ export default {
       </table>
     </div>
   </div>
-  <div v-else>
+  <div v-else class="flex flex-col items-center">
     <p class="mt-4 text-gray-500">No Data</p>
+  </div>
+
+  <!-- Export Modal -->
+
+  <div
+    id="exportModal"
+    class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+  >
+    <div class="bg-white p-4 rounded-lg shadow-md normal-case text-gray-900">
+      <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+      <button
+        @click="closeExportModal"
+        class="mt-4 border-2 border-gray-500 bg-gray-200 hover:bg-gray-400 text-gray-700 font-medium text-sm px-5 py-2.5 rounded-lg"
+      >
+        Close
+      </button>
+    </div>
   </div>
 </template>
 
